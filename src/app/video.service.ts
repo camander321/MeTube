@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import { youtubeAPIKey } from '../api-keys'
+import { Video } from './models/video.model'
 
 @Injectable()
 export class VideoService {
 
   parameters:string[] = [];
+  searchResults:Video[] = [];
+
   constructor() {}
 
   addParam(paramName, value) {
@@ -12,7 +15,7 @@ export class VideoService {
   }
 
   buildURL() {
-    let url = 'https://content.googleapis.com/youtube/v3/search?'
+    let url = 'https://www.googleapis.com/youtube/v3/search?'
     this.parameters.forEach((param) => {
       url += param + '&';
     });
@@ -36,10 +39,24 @@ export class VideoService {
   }
   makeCall(resolve, reject) {
     this.addParam('part', 'snippet');
-    this.addParam('maxResults', '25');
+    this.addParam('type', 'video');
     this.addParam('key', youtubeAPIKey.key);
     let url = this.buildURL();
+    this.parameters = [];
     let promise = this.getPromise(url);
     promise.then(resolve, reject);
   }
+
+  searchVideos() {
+    this.searchResults.length = 0;
+    this.makeCall(data => {
+      data.items.forEach(video => {
+        this.searchResults.push(new Video(video));
+      });
+    }, error => {
+      console.log(error);
+    });
+    console.log(this.searchResults);
+  }
+
 }

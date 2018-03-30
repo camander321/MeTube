@@ -11,6 +11,8 @@
 .desc {
   display: block;
   max-width: 210px;
+  height: 2.5em;
   font-weight: bold;
   overflow-wrap: break-word;
+  overflow:hidden
 }

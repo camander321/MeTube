@@ -1,6 +1,8 @@
-<div *ngFor='let suggestion of suggestions' class="video">
-  <img id="thumbNail" src="http://img.youtube.com/vi/{{suggestion.id}}/mqdefault.jpg" alt="">
-  <div class="desc">
-    <span>{{suggestion.title}}</span>
+<div class="suggestions">
+  <div *ngFor='let suggestion of suggestions' class="video">
+    <img id="thumbNail" src="http://img.youtube.com/vi/{{suggestion.id}}/mqdefault.jpg" alt="">
+    <div class="desc">
+      <span>{{suggestion.title}}</span>
+    </div>
   </div>
 </div>

@@ -41,3 +41,22 @@
   top: 50%;
   transform: translate(100px,-50%);
 }
+
+.search {
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  transform: translate(300px,-50%);
+}
+
+#searchButton {
+  position: absolute;
+  top: 50%;
+  transform: translate(398px,-50%);
+}
+
+#seachIcon {
+  width: 2em;
+  height: 2em;
+  display: inline;
+}

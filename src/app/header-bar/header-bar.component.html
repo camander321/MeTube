@@ -4,4 +4,8 @@
     <img id="headerLogo" src="assets/images/meTubeLogo.png" alt="">
     <span id="logoName">MeTube</span>
   </div>
+  <div class="search">
+    <input #searchString id='searchInput' type="text" class="form-control" name="" placeholder="Search">
+    <button id='searchButton' type="button" name="button"><img id="seachIcon" src="assets/images/search.png" (click)='search(searchString.value)'></button>
+  </div>
 </div>

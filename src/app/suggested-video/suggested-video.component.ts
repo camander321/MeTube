@@ -14,15 +14,10 @@ export class SuggestedVideoComponent implements OnInit {
   suggestions:Video[] = [];
 
   constructor(private service:VideoService) {
-    this.service.makeCall(data => {
-      data.items.forEach(video => {
-        this.suggestions.push(new Video(video.id.videoId, video.snippet.title));
-      });
-    }, error => {
-      console.log(error);
-    });
+    this.suggestions = this.service.searchResults;
   }
 
   ngOnInit() {
+    this.service.searchVideos();
   }
 }
