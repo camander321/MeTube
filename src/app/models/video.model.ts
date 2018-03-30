@@ -1,6 +1,3 @@
 export class Video {
-  id:string = '';
-  title:string = '';
-  
-  constructor(){}
+  constructor(public id:string, public title:string){}
 }
