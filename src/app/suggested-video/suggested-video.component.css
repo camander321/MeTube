@@ -1,3 +1,9 @@
+.video {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
 #thumbNail {
   width: 210px;
+  height: 120px;
 }

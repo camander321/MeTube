@@ -11,7 +11,7 @@ export class SuggestedVideoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.videoId);
+    
   }
 
 }
