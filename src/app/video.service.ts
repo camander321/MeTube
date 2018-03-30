@@ -6,7 +6,7 @@ import { Video } from './models/video.model'
 export class VideoService {
 
   parameters:string[] = [];
-  searchResults:Video[] = [];
+  static searchResults:Video[] = [];
 
   constructor() {}
 
@@ -40,6 +40,7 @@ export class VideoService {
   makeCall(resolve, reject) {
     this.addParam('part', 'snippet');
     this.addParam('type', 'video');
+    this.addParam('maxResults', '25');
     this.addParam('key', youtubeAPIKey.key);
     let url = this.buildURL();
     this.parameters = [];
@@ -48,15 +49,14 @@ export class VideoService {
   }
 
   searchVideos() {
-    this.searchResults.length = 0;
+    VideoService.searchResults.length = 0;
     this.makeCall(data => {
       data.items.forEach(video => {
-        this.searchResults.push(new Video(video));
+        VideoService.searchResults.push(new Video(video));
       });
     }, error => {
       console.log(error);
     });
-    console.log(this.searchResults);
   }
 
 }

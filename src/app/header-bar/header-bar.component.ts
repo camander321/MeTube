@@ -15,7 +15,6 @@ export class HeaderBarComponent implements OnInit {
   }
 
   search(searchString:string) {
-    console.log("here");
     this.service.addParam('q', searchString);
     this.service.searchVideos();
   }

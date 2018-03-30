@@ -14,7 +14,7 @@ export class SuggestedVideoComponent implements OnInit {
   suggestions:Video[] = [];
 
   constructor(private service:VideoService) {
-    this.suggestions = this.service.searchResults;
+    this.suggestions = VideoService.searchResults;
   }
 
   ngOnInit() {
