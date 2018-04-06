@@ -15,6 +15,8 @@ export class ShowVideoComponent implements OnInit {
   videoId:string;
   embedHtml;
   videoSnippet;
+  descShort:string = '';
+  showFullDesc:boolean = false;
 
   constructor(public videoService: VideoService, public sanitizer: DomSanitizer, private route: ActivatedRoute, private location: Location) {
     this.route.params.forEach((urlParameters) => {
@@ -26,7 +28,7 @@ export class ShowVideoComponent implements OnInit {
     this.videoService.getVideoById(this.videoId, data => {
       this.embedHtml = this.sanitizer.bypassSecurityTrustHtml(data.items[0].player.embedHtml);
       this.videoSnippet = data.items[0].snippet;
-      console.log(this.videoSnippet);
+      this.descShort = this.videoSnippet.description.length < 100 ? this.videoSnippet.description : this.videoSnippet.description.slice(0, 96) + ' ...';
     });
   }
 }
