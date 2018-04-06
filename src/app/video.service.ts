@@ -41,6 +41,7 @@ export class VideoService {
 
   makeCall(resolve, reject) {
     let url = this.buildURL();
+    console.log(url);
     this.parameters = [];
     let promise = this.getPromise(url);
     promise.then(resolve, reject);
@@ -56,6 +57,7 @@ export class VideoService {
     this.addParam('type', 'video');
     this.addParam('maxResults', '25');
     this.addParam('key', youtubeAPIKey.key);
+
     this.makeCall(data => {
       data.items.forEach(video => {
         VideoService.searchResults.push(new Video(video));
@@ -65,14 +67,15 @@ export class VideoService {
     });
   }
 
-  getVideoById(videoId) {
+  getVideoById(videoId, response) {
     VideoService.searchResults.length = 0;
 
-    this.makeCall(data => {
-      data.items.forEach(video => {
-        VideoService.searchResults.push(new Video(video));
-      });
-    }, error => {
+    this.urlBase = 'https://www.googleapis.com/youtube/v3/videos?';
+    this.addParam('part', 'player,snippet');
+    this.addParam('id', videoId);
+    this.addParam('key', youtubeAPIKey.key);
+
+    this.makeCall(response, error => {
       console.log(error);
     });
   }

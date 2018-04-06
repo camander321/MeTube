@@ -16,7 +16,7 @@ export class VideoListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.searchVideos();
+    this.service.searchVideos('');
     this.videos = VideoService.searchResults;
   }
 
