@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VideoService } from '../video.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-bar',
@@ -9,7 +10,7 @@ import { VideoService } from '../video.service'
 })
 export class HeaderBarComponent implements OnInit {
 
-  constructor(private service:VideoService) { }
+  constructor(private router:Router, private service:VideoService) { }
 
   ngOnInit() {
   }
@@ -17,5 +18,6 @@ export class HeaderBarComponent implements OnInit {
   search(searchString:string) {
     this.service.addParam('q', searchString);
     this.service.searchVideos();
+    this.router.navigate(['']);
   }
 }

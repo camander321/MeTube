@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Location } from '@angular/common';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-show-video',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowVideoComponent implements OnInit {
 
-  constructor() { }
+  videoId:string;
+
+  constructor(public sanitizer: DomSanitizer, private route: ActivatedRoute, private location: Location) {
+    this.route.params.forEach((urlParameters) => {
+      this.videoId = urlParameters['id'];
+    });
+    console.log(this.videoId);
+  }
 
   ngOnInit() {
+
+  }
+
+  getEmbedUrl() {
+    return this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/" + this.videoId + "?autoplay=1");
   }
 
 }

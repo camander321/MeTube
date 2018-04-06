@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { youtubeAPIKey } from '../api-keys'
+import { youtubeAPIKey } from './api-keys'
 import { Video } from './models/video.model'
 
 @Injectable()

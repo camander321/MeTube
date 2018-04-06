@@ -12,11 +12,12 @@ export class VideoListComponent implements OnInit {
   videos:Video[] = [];
 
   constructor(private service:VideoService) {
-    this.videos = VideoService.searchResults;
+
   }
 
   ngOnInit() {
     this.service.searchVideos();
+    this.videos = VideoService.searchResults;
   }
 
 }
