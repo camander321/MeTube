@@ -7,6 +7,16 @@
 ## Description
 A YouTube clone the allows users to search for videos.
 
+##### Current Features
+* Search YouTube for videos with a given string.
+* Show titles and thumbnails of result videos returned from api.
+
+##### Future Features
+* Click video titles or thumbnails to go to a route for that video.
+* Embed video in page.
+* Use firebase for user authentication and commenting
+
+
 ## Setup/Installation Requirements
 * download or clone repository from `git clone https://github.com/camander321/docsearch`
 * navigate to project directory
