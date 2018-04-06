@@ -1,6 +1,7 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { VideoListComponent } from './video-list/video-list.component'
+import { ShowVideoComponent } from './show-video/show-video.component'
 
 const appRoutes: Routes = [
   {
@@ -9,7 +10,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'watch/:id',
-    component: VideoListComponent
+    component: ShowVideoComponent
   }
 ];
 
