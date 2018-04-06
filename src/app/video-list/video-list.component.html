@@ -1,0 +1,8 @@
+<div class="suggestions">
+  <div *ngFor='let video of videos' class="video" routerLink='watch/{{video.id}}'>
+    <img id="thumbNail" src="http://img.youtube.com/vi/{{video.id}}/mqdefault.jpg" alt="">
+    <div class="desc">
+      <span>{{video.title}}</span>
+    </div>
+  </div>
+</div>

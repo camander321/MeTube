@@ -1,23 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AlertModule } from 'ngx-bootstrap';
+import { routing } from './app.routing';
 
 
 import { AppComponent } from './app.component';
 import { HeaderBarComponent } from './header-bar/header-bar.component';
-import { SuggestedVideoComponent } from './suggested-video/suggested-video.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
+import { VideoListComponent } from './video-list/video-list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderBarComponent,
-    SuggestedVideoComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    VideoListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    // FormsModule,
+    // HttpModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
