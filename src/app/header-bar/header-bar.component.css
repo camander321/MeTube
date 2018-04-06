@@ -58,6 +58,7 @@
   transform: translate(-5px, -50%);
 }
 
-span#glyphicon-search {
+.glyphicon {
+  color: gray;
   width: 3em;
 }
