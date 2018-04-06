@@ -1,0 +1,14 @@
+<p (click)='addComment("this is a comment")'>
+  list-comments works!
+</p>
+<form>
+  <input type="text" #newComment placeholder="Leave A comment">
+  <button type="button" (click)='addComment(newComment.value); newComment.value = ""'>Post Comment</button>
+</form>
+
+<div class="comments">
+  <div class="well" *ngFor='let comment of comments | async'>
+    <p class='commentContent'>{{comment.content}}</p>
+    <p class="timestamp">{{getElapsedTime(comment.timestamp)}}</p>
+  </div>
+</div>

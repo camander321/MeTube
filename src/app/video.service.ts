@@ -6,6 +6,7 @@ import { Video } from './models/video.model'
 export class VideoService {
 
   parameters:string[] = [];
+  urlBase:string = '';
   static searchResults:Video[] = [];
 
   constructor() {}
@@ -15,7 +16,7 @@ export class VideoService {
   }
 
   buildURL() {
-    let url = 'https://www.googleapis.com/youtube/v3/search?'
+    let url = this.urlBase;
     this.parameters.forEach((param) => {
       url += param + '&';
     });
@@ -37,19 +38,24 @@ export class VideoService {
       request.send();
     });
   }
+
   makeCall(resolve, reject) {
-    this.addParam('part', 'snippet');
-    this.addParam('type', 'video');
-    this.addParam('maxResults', '25');
-    this.addParam('key', youtubeAPIKey.key);
     let url = this.buildURL();
     this.parameters = [];
     let promise = this.getPromise(url);
     promise.then(resolve, reject);
   }
 
-  searchVideos() {
+  searchVideos(searchString) {
     VideoService.searchResults.length = 0;
+
+    this.urlBase = 'https://www.googleapis.com/youtube/v3/search?';
+    if (searchString && searchString.length > 0)
+      this.addParam('q', searchString);
+    this.addParam('part', 'snippet');
+    this.addParam('type', 'video');
+    this.addParam('maxResults', '25');
+    this.addParam('key', youtubeAPIKey.key);
     this.makeCall(data => {
       data.items.forEach(video => {
         VideoService.searchResults.push(new Video(video));
@@ -59,4 +65,15 @@ export class VideoService {
     });
   }
 
+  getVideoById(videoId) {
+    VideoService.searchResults.length = 0;
+
+    this.makeCall(data => {
+      data.items.forEach(video => {
+        VideoService.searchResults.push(new Video(video));
+      });
+    }, error => {
+      console.log(error);
+    });
+  }
 }

@@ -11,20 +11,17 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class ShowVideoComponent implements OnInit {
 
   videoId:string;
+  embedUrl:string = '';
+  safeUrl;
 
   constructor(public sanitizer: DomSanitizer, private route: ActivatedRoute, private location: Location) {
     this.route.params.forEach((urlParameters) => {
       this.videoId = urlParameters['id'];
     });
-    console.log(this.videoId);
   }
 
   ngOnInit() {
-
+    this.embedUrl = "https://www.youtube.com/embed/" + this.videoId + "?autoplay=1";
+    this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.embedUrl);
   }
-
-  getEmbedUrl() {
-    return this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/" + this.videoId + "?autoplay=1");
-  }
-
 }

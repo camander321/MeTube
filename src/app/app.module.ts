@@ -12,6 +12,7 @@ import { HeaderBarComponent } from './header-bar/header-bar.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { VideoListComponent } from './video-list/video-list.component';
 import { ShowVideoComponent } from './show-video/show-video.component';
+import { ListCommentsComponent } from './list-comments/list-comments.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -26,12 +27,14 @@ export const firebaseConfig = {
     HeaderBarComponent,
     SideMenuComponent,
     VideoListComponent,
-    ShowVideoComponent
+    ShowVideoComponent,
+    ListCommentsComponent
   ],
   imports: [
     BrowserModule,
-    // FormsModule,
-    // HttpModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     routing
   ],
   providers: [],

@@ -16,8 +16,7 @@ export class HeaderBarComponent implements OnInit {
   }
 
   search(searchString:string) {
-    this.service.addParam('q', searchString);
-    this.service.searchVideos();
+    this.service.searchVideos(searchString);
     this.router.navigate(['']);
   }
 }
