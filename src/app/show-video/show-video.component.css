@@ -1,3 +1,7 @@
 .more-button {
   color: gray;
 }
+
+.more-button:hover {
+  cursor: pointer;
+}

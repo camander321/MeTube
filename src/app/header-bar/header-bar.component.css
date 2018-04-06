@@ -10,8 +10,8 @@
 }
 
 #menuIcon {
-  width: 20px;
-  height: 20px;
+  width: 2em;
+  height: 1em;
   position: absolute;
   top: 50%;
   transform: translate(20px,-50%);
@@ -22,6 +22,9 @@
   width: 80px;
   height: 24px;
   margin-top: 10px;
+}
+.logo:hover {
+  cursor: pointer;
 }
 
 #headerLogo {
@@ -52,11 +55,9 @@
 #searchButton {
   position: absolute;
   top: 50%;
-  transform: translate(398px,-50%);
+  transform: translate(-5px, -50%);
 }
 
-#seachIcon {
-  width: 2em;
-  height: 2em;
-  display: inline;
+span#glyphicon-search {
+  width: 3em;
 }

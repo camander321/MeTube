@@ -1,11 +1,11 @@
 <div class="header">
-  <img id="menuIcon" src="assets/images/menuIcon.png" alt="">
-  <div class="logo" routerLink=''>
+  <span id="menuIcon" class="glyphicon glyphicon-menu-hamburger"></span>
+  <div class="logo" (click)='goToHome()'>
     <img id="headerLogo" src="assets/images/meTubeLogo.png" alt="">
     <span id="logoName">MeTube</span>
   </div>
-  <div class="search">
-    <input #searchString id='searchInput' type="text" class="form-control" name="" placeholder="Search">
-    <button id='searchButton' type="button" name="button" (click)='search(searchString.value)'><img id="seachIcon" src="assets/images/search.png" ></button>
+  <div class="search input-group">
+    <input #searchString type="text" class="form-control" name="" placeholder="Search">
+    <button id="searchButton" class="btn btn-default" type="button" name="button" (click)='search(searchString.value)'><span class="glyphicon glyphicon-search"></span></button>
   </div>
 </div>

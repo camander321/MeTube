@@ -15,6 +15,10 @@ export class HeaderBarComponent implements OnInit {
   ngOnInit() {
   }
 
+  goToHome() {
+    this.router.navigate(['']);
+  }
+
   search(searchString:string) {
     this.service.searchVideos(searchString);
     this.router.navigate(['']);

@@ -41,7 +41,6 @@ export class VideoService {
 
   makeCall(resolve, reject) {
     let url = this.buildURL();
-    console.log(url);
     this.parameters = [];
     let promise = this.getPromise(url);
     promise.then(resolve, reject);
@@ -73,6 +72,7 @@ export class VideoService {
     this.urlBase = 'https://www.googleapis.com/youtube/v3/videos?';
     this.addParam('part', 'player,snippet');
     this.addParam('id', videoId);
+    this.addParam('maxWidth', screen.width / 2);
     this.addParam('key', youtubeAPIKey.key);
 
     this.makeCall(response, error => {
