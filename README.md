@@ -4,7 +4,7 @@
 #### By Cameron Anderson
 ##### 3/30/2018
 
-###### https://metube-199617.firebaseapp.com/watch/pCjY3ZQY8WY
+###### https://metube-199617.firebaseapp.com
 
 ## Description
 A YouTube clone the allows users to search for videos.
@@ -12,18 +12,25 @@ A YouTube clone the allows users to search for videos.
 ##### Current Features
 * Search YouTube for videos with a given string.
 * Show titles and thumbnails of result videos returned from api.
-
-##### Future Features
 * Click video titles or thumbnails to go to a route for that video.
 * Embed video in page.
-* Use firebase for user authentication and commenting
+* Add comments on any video and store them on firebase commenting
+
+##### Future Features
+* User authentication
 
 
 ## Setup/Installation Requirements
 * download or clone repository from `git clone https://github.com/camander321/docsearch`
 * navigate to project directory
-* follow this video tutorial to obtain an api: `https://www.youtube.com/watch?v=SzlG5Qnjd4Y`
-* add a file in `src/app` called `api-keys.ts` containing the line `export var youtubeAPIKey = {key: '[YOUR API KEY]'}`
+* add youtube api credentials
+  * follow this video tutorial to obtain an api: `https://www.youtube.com/watch?v=SzlG5Qnjd4Y`
+  * add a file in `src/app` called `api-keys.ts` containing the line `export var youtubeAPIKey = {key: '[ YOUR API KEY ]'}`
+* add firebase credentials.
+  * go to `https://console.firebase.google.com/`and login
+  * add a new project
+  * click 'Add Firebase to your web app'
+  * copy the `var config` block of code and paste into your new `api-keys.ts` file. change the first line to look like `export var masterFirebaseConfig = {`
 * run `npm install`
 * run `ng serve`
 * open your browser and navigate to `localhost:4200`
